@@ -1,28 +1,38 @@
 #!/bin/bash
 
 DATE=$(date +%Y-%m-%d)
-echo "Today date is $DATE"
+
+SOURCE=/Volumes/Untitled/DCIM/100MEDIA
 DESTINATION="/Volumes/SSD2TBV1/travel/$DATE"
+
+PHOTOS=Photos
+VIDEOS=Videos
+JPG=JPG
+
+PHOTOS_DESTINATION="$DESTINATION/$PHOTOS"
+VIDEOS_DESTINATION="$DESTINATION/$VIDEOS"
+JPG_DESTINATION="$DESTINATION/$JPG"
+
 echo "make directory $DESTINATION"
 mkdir -p "$DESTINATION"
 
 echo "make directory $DESTINATION/Photos"
-mkdir -p "$DESTINATION/Photos"
+mkdir -p "$PHOTOS_DESTINATION"
 
 echo "make directory $DESTINATION/JPG"
-mkdir -p "$DESTINATION/JPG"
+mkdir -p "$JPG_DESTINATION"
 
 echo "make directory $DESTINATION/Videos"
-mkdir -p "$DESTINATION/Videos"
+mkdir -p "$VIDEOS_DESTINATION"
 
 echo "copy RAW photos"
-rsync -av --progress /Volumes/Untitled/DCIM/100MEDIA/**/*.DNG "$DESTINATION/Photos"
+rsync -av --progress "$SOURCE/**/*.DNG" "$PHOTOS_DESTINATION"
 echo "copy JPG photos"
-rsync -av --progress /Volumes/Untitled/DCIM/100MEDIA/**/*.JPG "$DESTINATION/JPG"
+rsync -av --progress "$SOURCE/**/*.JPG" "$JPG_DESTINATION"
 
 echo "copy videos"
-rsync -av --progress /Volumes/Untitled/DCIM/100MEDIA/**/*.MP4 "$DESTINATION/Videos"
+rsync -av --progress "$SOURCE/**/*.MP4" "$VIDEOS_DESTINATION"
 
 echo "copy SRT subtitles"
-rsync -av --progress /Volumes/Untitled/DCIM/100MEDIA/**/*.SRT "$DESTINATION/Videos"
+rsync -av --progress "$SOURCE/**/*.SRT" "$VIDEOS_DESTINATION"
 
