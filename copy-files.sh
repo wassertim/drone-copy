@@ -1,7 +1,6 @@
-# Today date variable
-export DATE=`date +%Y-%m-%d`
+DATE=`date +%Y-%m-%d`
 echo "Today date is $DATE"
-export DESTINATION="/Volumes/SSD2TBV1/travel/$DATE"
+DESTINATION="/Volumes/SSD2TBV1/travel/$DATE"
 echo "make directory $DESTINATION"
 mkdir -p $DESTINATION
 
