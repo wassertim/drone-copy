@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DATE=$(date +%Y-%m-%d)
 echo "Today date is $DATE"
 DESTINATION="/Volumes/SSD2TBV1/travel/$DATE"
