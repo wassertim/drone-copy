@@ -1,8 +1,8 @@
-DATE=`date +%Y-%m-%d`
+DATE=$(date +%Y-%m-%d)
 echo "Today date is $DATE"
 DESTINATION="/Volumes/SSD2TBV1/travel/$DATE"
 echo "make directory $DESTINATION"
-mkdir -p $DESTINATION
+mkdir -p "$DESTINATION"
 
 echo "make directory $DESTINATION/Photos"
 mkdir -p "$DESTINATION/Photos"
