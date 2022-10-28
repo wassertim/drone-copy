@@ -16,13 +16,13 @@ JPG_DESTINATION="$DESTINATION/$JPG"
 echo "make directory $DESTINATION"
 mkdir -p "$DESTINATION"
 
-echo "make directory $DESTINATION/Photos"
+echo "make directory $PHOTOS_DESTINATION"
 mkdir -p "$PHOTOS_DESTINATION"
 
-echo "make directory $DESTINATION/JPG"
+echo "make directory $JPG_DESTINATION"
 mkdir -p "$JPG_DESTINATION"
 
-echo "make directory $DESTINATION/Videos"
+echo "make directory $VIDEOS_DESTINATION"
 mkdir -p "$VIDEOS_DESTINATION"
 
 echo "copy RAW photos"
