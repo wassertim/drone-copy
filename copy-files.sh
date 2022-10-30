@@ -19,7 +19,7 @@ mkdir -p "$PHOTOS_DESTINATION"
 mkdir -p "$JPG_DESTINATION"
 mkdir -p "$VIDEOS_DESTINATION"
 
-echo "copy from $SOURCE/**/*.DNG to $PHOTOS_DESTINATION with progress but not rsync"
+echo "copy from RAW files"
 find "$SOURCE" -name "*.DNG" -exec cp -v {} "$PHOTOS_DESTINATION" \;
 
 echo "copy JPG photos"
