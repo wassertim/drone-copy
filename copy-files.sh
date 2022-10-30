@@ -13,26 +13,21 @@ PHOTOS_DESTINATION="$DESTINATION/$PHOTOS"
 VIDEOS_DESTINATION="$DESTINATION/$VIDEOS"
 JPG_DESTINATION="$DESTINATION/$JPG"
 
-echo "make directory $DESTINATION"
+echo "make destination directories"
 mkdir -p "$DESTINATION"
-
-echo "make directory $PHOTOS_DESTINATION"
 mkdir -p "$PHOTOS_DESTINATION"
-
-echo "make directory $JPG_DESTINATION"
 mkdir -p "$JPG_DESTINATION"
-
-echo "make directory $VIDEOS_DESTINATION"
 mkdir -p "$VIDEOS_DESTINATION"
 
-echo "copy RAW photos"
-rsync -av --progress "$SOURCE/**/*.DNG" "$PHOTOS_DESTINATION"
+echo "copy from $SOURCE/**/*.DNG to $PHOTOS_DESTINATION with progress but not rsync"
+find "$SOURCE" -name "*.DNG" -exec cp -v {} "$PHOTOS_DESTINATION" \;
+
 echo "copy JPG photos"
-rsync -av --progress "$SOURCE/**/*.JPG" "$JPG_DESTINATION"
+find "$SOURCE" -name "*.JPG" -exec cp -v {} "$JPG_DESTINATION" \;
 
 echo "copy videos"
-rsync -av --progress "$SOURCE/**/*.MP4" "$VIDEOS_DESTINATION"
+find "$SOURCE" -name "*.MP4" -exec cp -v {} "$VIDEOS_DESTINATION" \;
 
 echo "copy SRT subtitles"
-rsync -av --progress "$SOURCE/**/*.SRT" "$VIDEOS_DESTINATION"
+find "$SOURCE" -name "*.SRT" -exec cp -v {} "$VIDEOS_DESTINATION" \;
 
